@@ -15,10 +15,7 @@ public class Backup60 {
 
         needBackupDirs.put("pinnacle","C:\\Users\\Administrator\\eclipse-workspace\\PinnacleFace\\pinnacle\\Liang");
 //        needBackupDirs.put()
-
-
 //        cpFileWithZip(needBackupDirs[0],"F:\\temporary","F:\\testmp4");
-
     }
 
     /**
