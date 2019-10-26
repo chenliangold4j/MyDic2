@@ -37,11 +37,12 @@ public class BaseEventCenter implements IEventCenter {
 
 
 
+
+
     @Override
-    public boolean publishEvent(Integer key, IEvent event) {
-        ConcurrentLinkedDeque<IEventHandler> theEventList = center.get(key);
+    public boolean publishEvent(IEvent event) {
+        ConcurrentLinkedDeque<IEventHandler> theEventList = center.get(event.getEventKey());
         if(theEventList == null){
-            System.out.println(key+":"+event+":"+"null");
             return false;
         }
         executorService.execute(() -> {
