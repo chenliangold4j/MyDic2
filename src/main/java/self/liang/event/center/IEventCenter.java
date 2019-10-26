@@ -8,5 +8,5 @@ public interface IEventCenter {
 
     public boolean unregisterListener(Integer key,IEventHandler eventHandler);
 
-
+    public boolean shutdown();
 }

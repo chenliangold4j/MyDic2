@@ -35,9 +35,15 @@ public class BaseEventCenter implements IEventCenter {
         return true;
     }
 
+
+
     @Override
     public boolean publishEvent(Integer key, IEvent event) {
         ConcurrentLinkedDeque<IEventHandler> theEventList = center.get(key);
+        if(theEventList == null){
+            System.out.println(key+":"+event+":"+"null");
+            return false;
+        }
         executorService.execute(() -> {
             for (IEventHandler eventHandler : theEventList) {
                 eventHandler.onEventReceiver(event);
@@ -57,6 +63,12 @@ public class BaseEventCenter implements IEventCenter {
         } finally {
             reentrantLock.unlock();
         }
+        return true;
+    }
+
+    @Override
+    public boolean shutdown() {
+        executorService.shutdown();
         return true;
     }
 
