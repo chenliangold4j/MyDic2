@@ -13,7 +13,7 @@
         <module>testparent</module>
     </modules>
     <packaging>pom</packaging>
-
+<!--    <packaging>war</packaging>   聚合的项目，，本身的不会打包-->
     <name>MyDic2 Maven Webapp</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
@@ -31,9 +31,7 @@
             <version>4.7</version>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
-
 
     <build>
         <plugins>
