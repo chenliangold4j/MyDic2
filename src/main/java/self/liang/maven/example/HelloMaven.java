@@ -64,7 +64,59 @@ package self.liang.maven.example;
  *   <artifactId>testson</artifactId> 这里去掉了groupId和version
  *
  *  这样就能继承依赖。。这时候去掉junit的；依赖。。子模块还是可以用到jUnit和guava
+ *  dependencyManagement之后。。子模块就要声明依赖但是不用声明版本
  *
+ *  聚合和继承时两个概念。。前者用于快速构建  后者用于消除重复的依赖
+ *
+ *
+ * 环境隔离
+ *      （1）、在pom文件中添加resources结点
+ *              <resources>
+ *       <resource>
+ *         <directory>src/main/resources.${deploy.type}</directory>
+ *         <excludes>
+ *           <exclude>*.jsp</exclude>
+ *         </excludes>
+ *       </resource>
+ *
+ *       <resource>
+ *         <directory>src/main/resources</directory>
+ *       </resource>
+ *     (2) 在pom文件中添加profiles结点
+ *     <profiles>
+ *     <profile>
+ *       <id>dev</id>
+ *       <activation>
+ *         <activeByDefault>true</activeByDefault>
+ *       </activation>
+ *       <properties>
+ *         <deploy.type>dev</deploy.type>
+ *       </properties>
+ *     </profile>
+ *     <profile>
+ *       <id>beta</id>
+ *       <properties>
+ *         <deploy.type>beta</deploy.type>
+ *       </properties>
+ *     </profile>
+ *     <profile>
+ *       <id>prod</id>
+ *       <properties>
+ *         <deploy.type>prod</deploy.type>
+ *       </properties>
+ *     </profile>
+ *   </profiles>
+ *
+ *   (3) Maven环境隔离目录初始化
+ *     之前我们在pom中配置了环境隔离的目录，resources下，
+ *     那么就下来就是将需要进行隔离的文件单独放到一个文件夹中，
+ *     公共的文件留在resources目录下即可。
+ *
+ *   (4)Maven环境隔离的使用
+ *      idea右侧有maven的profiles选项
+ *
+ *      mvn clean package -Dmanven.test.skip=true -Pxxx
+ *     这个命令的前面是一样的，只不过是多了一个参数-Pxxx，其中xxx表示你想编译的环境，-P表示的是使用Maven编译指令，
  *
  */
 public class HelloMaven {
