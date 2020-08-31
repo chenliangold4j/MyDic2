@@ -1,0 +1,4 @@
+dic:
+  test_console: go_be_better
+server:
+  port: 8081

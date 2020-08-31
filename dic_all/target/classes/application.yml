@@ -1,0 +1,4 @@
+dic:
+  test_console: go_be_btter2
+server:
+  port: 8080
