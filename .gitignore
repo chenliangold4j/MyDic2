@@ -26,5 +26,4 @@ TestMain.java
 .idea/
 *.iml
 *.lst
-test/
 showdoc_api.sh
