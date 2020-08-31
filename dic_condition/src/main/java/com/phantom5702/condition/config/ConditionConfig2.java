@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 @Configuration
 public class ConditionConfig2 {
@@ -37,5 +38,21 @@ public class ConditionConfig2 {
         return workBean;
     }
 
+
+    @Bean("workBeanT")
+    @Profile("test")
+    WorkBean workBean4() {
+        WorkBean workBean = new WorkBean();
+        workBean.setId(4);
+        return workBean;
+    }
+
+    @Bean("workBeanT")
+    @Profile("dev")
+    WorkBean workBean5() {
+        WorkBean workBean = new WorkBean();
+        workBean.setId(5);
+        return workBean;
+    }
 
 }

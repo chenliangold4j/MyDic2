@@ -29,11 +29,16 @@ public class VerifyController {
     @Qualifier("workBean3")
     WorkBean workBean3;
 
+    @Autowired(required = false)
+    @Qualifier("workBeanT")
+    WorkBean workBeanT;
+
     @GetMapping("/test")
     public void verify() {
         System.out.println("workBean" + JSONUtil.toJsonStr(workBean));
         System.out.println("workBean2" + JSONUtil.toJsonStr(workBean2));
         System.out.println("workBean3" + JSONUtil.toJsonStr(workBean3));
+        System.out.println("workBeanT" + JSONUtil.toJsonStr(workBeanT));
     }
 
 
