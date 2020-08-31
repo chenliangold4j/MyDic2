@@ -7,4 +7,5 @@ package com.phantom5702.beanhelper;
  * 3.spring初始化之后 implements ApplicationListener<ContextRefreshedEvent>，修改bean然后再放入
  */
 public class BeanHelper {
+    //TODO 工具类 1.修改bean的任意field为传入的field  2.简易的前置aop
 }
