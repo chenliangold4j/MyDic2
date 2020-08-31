@@ -36,6 +36,6 @@ public class Test implements CommandLineRunner {
      */
     @Override
     public void run(String... args) throws Exception {
-        System.out.println(JSONUtil.toJsonStr(person()));
+        System.out.println("runner:"+JSONUtil.toJsonStr(person()));
     }
 }
